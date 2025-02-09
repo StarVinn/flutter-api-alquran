@@ -23,6 +23,7 @@ class SurahDetailPage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        backgroundColor: Colors.teal,
       ),
       body: ListView.builder(
         itemCount: surahDetail.ayat?.length ?? 0,
@@ -43,12 +44,12 @@ class SurahDetailPage extends StatelessWidget {
                 ayat.ar ?? "-",
                 textDirection: TextDirection.rtl,
                 style: const TextStyle(
+                  fontFamily: "Arabic",
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
                   color: Colors.black87,
                   letterSpacing: 1.2,
                   height: 1.5,
-                  backgroundColor: Colors.white,
                 ),
               ),
               subtitle: Padding(
