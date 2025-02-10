@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'posts.dart';
+import 'surah.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'HTTP',
+      title: 'Al-Quran',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

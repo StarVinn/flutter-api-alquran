@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'post_model.dart';
+import 'surah_model.dart';
 
 class HttpService {
   final String postsURL = 'https://quran-api.santrikoding.com/api/surah';

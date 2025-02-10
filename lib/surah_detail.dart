@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'post_model.dart';
-import 'posts.dart';
+import 'surah_model.dart';
+import 'surah.dart';
 
 String cleanHtmlTags(String htmlString) {
   return htmlString.replaceAll(RegExp(r'<[^>]*>'), '');
@@ -58,7 +58,7 @@ class SurahDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Latin: ${cleanHtmlTags(ayat.tr ?? "-")}",
+                      cleanHtmlTags(ayat.tr ?? "-"),
                       style: const TextStyle(
                         fontSize: 16,
                         color: Colors.teal,

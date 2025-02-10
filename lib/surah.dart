@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'http_service.dart';
-import 'post_model.dart';
-import 'post_details.dart';
+import 'surah_model.dart';
+import 'surah_detail.dart';
 
 class PostsPage extends StatefulWidget {
   @override
@@ -109,6 +109,7 @@ class _PostsPageState extends State<PostsPage> {
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.blueGrey,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
@@ -116,6 +117,7 @@ class _PostsPageState extends State<PostsPage> {
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.blueGrey,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
@@ -123,6 +125,7 @@ class _PostsPageState extends State<PostsPage> {
                       style: const TextStyle(
                         fontSize: 14,
                         color: Colors.blueGrey,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
