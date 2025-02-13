@@ -6,29 +6,83 @@ String cleanHtmlTags(String htmlString) {
   return htmlString.replaceAll(RegExp(r'<[^>]*>'), '');
 }
 
-class SurahDetailPage extends StatelessWidget {
+class SurahDetailPage extends StatefulWidget {
   final SurahDetail surahDetail;
 
   const SurahDetailPage({super.key, required this.surahDetail});
 
   @override
+  _SurahDetailPageState createState() => _SurahDetailPageState();
+}
+
+class _SurahDetailPageState extends State<SurahDetailPage> {
+  TextEditingController searchController = TextEditingController();
+  List<Ayat> filteredAyat = [];
+
+  @override
+  void initState() {
+    super.initState();
+    filteredAyat = widget.surahDetail.ayat ?? [];
+  }
+
+  void filterAyat(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredAyat = widget.surahDetail.ayat ?? [];
+      } else {
+        filteredAyat = widget.surahDetail.ayat!
+            .where((ayat) => ayat.nomor.toString().contains(query))
+            .toList();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          surahDetail.namaLatin ?? "Detail Surah",
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+        title: Row(
+          children: [
+            Expanded(
+              child: Text(
+                widget.surahDetail.namaLatin ?? "Detail Surah",
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 100,
+              child: TextField(
+                controller: searchController,
+                onChanged: filterAyat,
+                decoration: const InputDecoration(
+                  hintText: "Cari Ayat...",
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromARGB(255, 0, 248, 223), width: 2), // 2px border
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.black,
+                        width: 2), // 2px border when focused
+                  ),
+                  hintStyle: TextStyle(color: Colors.white60),
+                ),
+                style: const TextStyle(color: Colors.white),
+                keyboardType: TextInputType.number,
+              ),
+            ),
+          ],
         ),
         backgroundColor: Colors.teal,
       ),
       body: ListView.builder(
-        itemCount: surahDetail.ayat?.length ?? 0,
+        itemCount: filteredAyat.length,
         itemBuilder: (context, index) {
-          final ayat = surahDetail.ayat![index];
+          final ayat = filteredAyat[index];
           return Card(
             elevation: 2,
             margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
