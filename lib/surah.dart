@@ -57,16 +57,10 @@ class _PostsPageState extends State<PostsPage> {
               width: 200, // Adjust width as needed
               child: TextField(
                 controller: searchController,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Cari Surah...',
-                  enabledBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: Color.fromARGB(255, 0, 94, 85), width: 2), // 2px border
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 2), // 2px border when focused
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
               ),
