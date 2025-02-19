@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 class Surah {
   final int nomor;
   final String nama;

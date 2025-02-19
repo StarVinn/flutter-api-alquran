@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'surah_model.dart';
-import 'surah.dart';
 
 String cleanHtmlTags(String htmlString) {
   return htmlString.replaceAll(RegExp(r'<[^>]*>'), '');
