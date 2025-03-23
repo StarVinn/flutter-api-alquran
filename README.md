@@ -13,3 +13,4 @@ Assign by : Sir Ageng Subagja A.Md.Kom
 2. Run Command ```cd Project_Api_Flutter_Alquran```
 3. Run Command ```code .```
 4. Run Command ``` flutter pub get ```
+5. Run Command ``` flutter run ```
